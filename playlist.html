@@ -1,85 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Messages</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Music Playlist</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="player" role="region" aria-label="Music player">
-    <div class="header">
-      <img class="cover" id="cover" src="https://picsum.photos/seed/helix1/300/300" alt="Album cover" />
-      <div class="meta">
-        <div class="title" id="title">—</div>
-        <div class="artist" id="artist">—</div>
-        <div class="subtle" id="nowPlaying">0 of 0</div>
-      </div>
+    <div class="playlist-container">
+        <h2>My Music Playlist</h2>
+        <select id="playlist-select">
+            <option value="" disabled selected>Select a song</option>
+            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="Song 1 - Upbeat Track">Song 1 - Upbeat Track</option>
+            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="Song 2 - Chill Vibes">Song 2 - Chill Vibes</option>
+            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-title="Song 3 - Energetic Beat">Song 3 - Energetic Beat</option>
+            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" data-title="Song 4 - Relaxing Melody">Song 4 - Relaxing Melody</option>
+        </select>
+        <p id="selected-song">No song selected</p>
+        <audio id="audio-player" controls></audio>
     </div>
 
-    <div class="controls">
-      <button class="btn btn--round" id="btnShuffle" aria-pressed="false" title="Shuffle">
-        <span class="icon">🔀</span>
-        <span class="sr-only">Toggle shuffle</span>
-      </button>
-
-      <button class="btn btn--round" id="btnPrev" title="Previous">
-        <span class="icon">⏮️</span>
-        <span class="sr-only">Previous track</span>
-      </button>
-
-      <button class="btn btn--round btn--primary" id="btnPlay" title="Play/Pause">
-        <span class="icon" id="iconPlay">▶️</span>
-        <span class="sr-only">Play or pause</span>
-      </button>
-
-      <button class="btn btn--round" id="btnNext" title="Next">
-        <span class="icon">⏭️</span>
-        <span class="sr-only">Next track</span>
-      </button>
-
-      <button class="btn btn--round" id="btnRepeat" aria-pressed="false" title="Repeat">
-        <span class="icon" id="iconRepeat">🔁</span>
-        <span class="sr-only">Toggle repeat</span>
-      </button>
-
-      <div class="spacer"></div>
-
-      <div class="time">
-        <span class="timecode" id="currentTime">0:00</span>
-        <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
-        <span class="timecode" id="duration">0:00</span>
-      </div>
-    </div>
-
-    <div class="volume">
-      <button class="btn btn--round small" id="btnMute" title="Mute">
-        <span class="icon" id="iconMute">🔊</span>
-        <span class="sr-only">Toggle mute</span>
-      </button>
-      <input type="range" id="volume" min="0" max="1" step="0.01" value="1" aria-label="Volume" />
-      <span class="subtle">Volume</span>
-    </div>
-
-    <div class="grid">
-      <div class="dropdown-panel">
-        <label class="subtle" for="trackSelect">Track list</label>
-        <select id="trackSelect" class="select" aria-label="Select track"></select>
-      </div>
-      <div class="side-panel">
-        <p class="subtle">Tips</p>
-        <ul class="subtle tips-list">
-          <li>Choose a track from the dropdown</li>
-          <li>Drag the bar to seek</li>
-          <li>Use shuffle 🔀 and repeat 🔁 / 🔂</li>
-          <li>Spacebar toggles play/pause</li>
-        </ul>
-      </div>
-    </div>
-
-    <audio id="audio" preload="metadata" crossorigin="anonymous"></audio>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
