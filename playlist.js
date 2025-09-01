@@ -43,7 +43,8 @@ const btnMute = document.getElementById("btnMute");
 const iconMute = document.getElementById("iconMute");
 const vol = document.getElementById("volume");
 
-const playlistEl = document.getElementById("playlist");
+// Dropdown
+const trackSelect = document.getElementById("trackSelect");
 
 // State
 let currentIndex = 0;
@@ -51,36 +52,17 @@ let isSeeking = false;
 let isShuffle = false;         // false | true
 let repeatMode = "off";        // "off" | "all" | "one"
 
-// Build playlist UI
-function buildPlaylist(){
-  playlistEl.innerHTML = "";
-  tracks.forEach((t, i) => {
-    const li = document.createElement("li");
-    li.dataset.index = i;
-
-    const btn = document.createElement("button");
-    btn.className = "track";
-    btn.setAttribute("aria-label", `Play ${t.title} by ${t.artist}`);
-
-    btn.innerHTML = `
-      <span class="index">${String(i+1).padStart(2,"0")}</span>
-      <div class="row grow">
-        <div class="t-title">${t.title}</div>
-        <div class="t-artist">${t.artist}</div>
-      </div>
-      <span class="badge">Play</span>
-    `;
-    btn.addEventListener("click", () => loadTrack(i, true));
-    li.appendChild(btn);
-    playlistEl.appendChild(li);
-  });
-  highlightActive();
+// Build dropdown options
+function buildDropdown(){
+  trackSelect.innerHTML = tracks
+    .map((t, i) => `<option value="${i}">${t.title} — ${t.artist}</option>`)
+    .join("");
+  trackSelect.value = String(currentIndex);
 }
 
-function highlightActive(){
-  [...playlistEl.children].forEach((li, i) => {
-    li.classList.toggle("active", i === currentIndex);
-  });
+// Keep dropdown synced with current track
+function syncDropdown(){
+  if (trackSelect) trackSelect.value = String(currentIndex);
 }
 
 function loadTrack(index, autoplay=false){
@@ -98,7 +80,7 @@ function loadTrack(index, autoplay=false){
   currentTimeEl.textContent = "0:00";
   durationEl.textContent = "0:00";
 
-  highlightActive();
+  syncDropdown();
 
   if (autoplay) {
     audio.play().catch(()=>{ /* ignore autoplay block */ });
@@ -223,6 +205,12 @@ audio.addEventListener("ended", () => {
   }
 });
 
+// Dropdown change -> load and play
+trackSelect.addEventListener("change", () => {
+  const idx = Number(trackSelect.value);
+  if (!Number.isNaN(idx)) loadTrack(idx, true);
+});
+
 // Keyboard shortcuts
 document.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
@@ -236,5 +224,5 @@ document.addEventListener("keydown", (e) => {
 });
 
 // Init
-buildPlaylist();
+buildDropdown();
 loadTrack(0, false);
