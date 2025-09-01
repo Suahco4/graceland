@@ -1,66 +1,6 @@
 /* CSS for styling the playlist dropdown */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.playlist-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
-}
-
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Style the dropdown */
-#playlist-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-}
-
-#playlist-select:hover {
-    border-color: #0056b3;
-}
-
-#playlist-select:focus {
-    outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-/* Style the selected song display */
-#selected-song {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #28a745;
-    font-weight: bold;
-}
-
-/* Style the audio player */
-audio {
-    width: 100%;
-    margin-top: 20px;
-}
-/* CSS for styling the playlist dropdown */
-body {
-    font-family: Arial, sans-serif;
     background-color: brown; /* Changed to brown */
     display: flex;
     justify-content: center;
