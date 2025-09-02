@@ -1,7 +1,7 @@
 /* CSS for styling the playlist dropdown */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('Logo.jpg'); /* Add your image path or URL here */
+    background-image: url('background.jpg'); /* Add your image path or URL here */
     background-size: cover; /* Covers the entire background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating/tiling */
@@ -11,6 +11,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    position: relative; /* Allows absolute positioning of fireflies container */
+    overflow: hidden; /* Prevents fireflies from causing scrollbars */
 }
 
 .playlist-container {
@@ -20,6 +22,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 300px;
+    z-index: 2; /* Ensures playlist is above fireflies */
+    position: relative;
 }
 
 h2 {
@@ -57,7 +61,7 @@ h2 {
     font-weight: bold;
 }
 
-/* New styles for the song profile image */
+/* Style for the song profile image */
 #song-image {
     max-width: 100%;
     height: auto;
@@ -71,4 +75,39 @@ h2 {
 audio {
     width: 100%;
     margin-top: 20px;
+}
+
+/* New styles for fireflies container */
+#fireflies-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through to the playlist */
+    z-index: 1; /* Behind the playlist */
+}
+
+/* Firefly styles */
+.firefly {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff700; /* Yellow glow */
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #fff700; /* Glowing effect */
+    opacity: 0.8;
+    animation: blink 2s infinite ease-in-out, move 10s infinite linear;
+}
+
+/* Blinking animation (fade in/out like fireflies) */
+@keyframes blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.8; }
+}
+
+/* Movement animation (customized per firefly in JS) */
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(var(--move-x), var(--move-y)); }
 }
