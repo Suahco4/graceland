@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="playlist.css">
 </head>
 <body>
+    <div id="fireflies-container"></div> <!-- New container for dynamic fireflies -->
+
     <div class="playlist-container">
-        <h2>My Music Playlist</h2>
+        <h2>The Messages</h2>
         <select id="playlist-select">
             <option value="" disabled selected>Select a song</option>
             <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" 
@@ -24,8 +26,8 @@
                     data-title="Song 4 - Relaxing Melody" 
                     data-image="https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80">Song 4 - Relaxing Melody</option>
         </select>
-        <p id="selected-song">No song selected</p>
-        <img id="song-image" src="" alt="Song Profile Image" style="display: none;"> <!-- New image element -->
+        <p id="selected-song">Listing to the message</p>
+        <img id="song-image" src="Logo.png" alt="Song Profile Image" style="display: none;">
         <audio id="audio-player" controls></audio>
     </div>
 
