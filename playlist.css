@@ -57,6 +57,16 @@ h2 {
     font-weight: bold;
 }
 
+/* New styles for the song profile image */
+#song-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Style the audio player */
 audio {
     width: 100%;
