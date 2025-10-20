@@ -1,39 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Messages</title>
-    <link rel="stylesheet" href="playlist.css">
-</head>
-<body>
-    <div id="fireflies-container"></div> <!-- New container for dynamic fireflies -->
 
-    <div class="playlist-container">
-        <h2>The Messages</h2>
-        <select id="playlist-select">
-            <option value="" disabled selected>Bless Your Heart</option>
-            <option value="Mother Piah.mp3" 
-                    data-title="Unity - Mot. Theresa Piah"
-                data-image="Mother Piah.jpg">
-                </option>
-            
-            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" 
-                    data-title="Song 2 - Chill Vibes"
-                    data-image="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&q=80">Song 2 - Chill Vibes</option>
-            
-            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" 
-                    data-title="Song 3 - Energetic Beat" 
-                    data-image="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&q=80">Song 3 - Energetic Beat</option>
-            <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" 
-                    data-title="Song 4 - Relaxing Melody" 
-                    data-image="https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80">Song 4 - Relaxing Melody</option>
-        </select>
-        <p id="selected-song">Listing to the message</p>
-        <img id="song-image" src="Logo.png" alt="Song Profile Image" style="display: none;">
-        <audio id="audio-player" controls></audio>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>The Power Of Grace - Messages</title>
+    <meta name="description" content="">
+    <meta name="author" content="Suahco4">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Power_Of_Grace_logo_update.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Power_Of_Grace_logo_update.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body id="top">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-jump">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="LPOG.png" alt="The Power Of Grace Ministries International Inc">
+            </a>
+        </div>
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="index.html" title="Home">Home</a></li>
+                <li><a href="about.html" title="About">About</a></li>
+                <li><a href="events.html" title="Services">Events</a></li>
+                <li><a href="gallery.html" title="Gallery">Gallery</a></li>
+                <li class="current"><a href="playlist.html" title="Messages">Messages</a></li>
+                <li><a href="donations.html" title="Donations">Donations</a></li>
+                <li><a href="contact.html" title="Contact us">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+    <!-- page header
+    ================================================== -->
+    <section class="page-header page-header--connect">
+
+        <div class="gradient-overlay"></div>
+        <div class="row page-header__content">
+            <div class="column">
+                <h1>The Messages</h1>
+            </div>
+        </div>
+
+    </section> <!-- end page-header -->
+
+
+    <!-- page content
+    ================================================== -->
+    <section class="page-content">
+
+        <div class="row">
+            <div class="column">
+                <p class="lead drop-cap">
+                Listen to the latest messages from The Power of Grace Ministries. Be blessed, encouraged, and transformed by the Word of God. Select a message from the playlist below to begin.
+                </p>
+            </div>
+        </div>
+
+        <div class="row wide">
+            <div class="column">
+
+                <div class="audio-player">
+                    <div class="audio-player__header">
+                        <img id="song-image" src="images/avatar/Mother Piah.jpg" alt="Message Artwork">
+                        <div class="audio-player__info">
+                            <h3 id="song-title">Unity In The Body</h3>
+                            <p id="song-artist">Mot. Theresa Piah</p>
+                        </div>
+                    </div>
+                    <audio id="audio-player" controls src="Mother Piah.mp3"></audio>
+                </div>
+
+                <ul class="message-playlist">
+                    <li class="message-playlist__item is-playing" 
+                        data-src="Mother Piah.mp3" 
+                        data-image="images/avatar/Mother Piah.jpg"
+                        data-title="Unity In The Body"
+                        data-artist="Mot. Theresa Piah">
+                        <div class="message-playlist__info">
+                            <h4>Unity In The Body</h4>
+                            <p>Mot. Theresa Piah</p>
+                        </div>
+                    </li>
+                    <li class="message-playlist__item" 
+                        data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" 
+                        data-image="images/avatar/1752501113872.jpg"
+                        data-title="The Foundation of Grace"
+                        data-artist="Pst. George Y. Piah">
+                        <div class="message-playlist__info">
+                            <h4>The Foundation of Grace</h4>
+                            <p>Pst. George Y. Piah</p>
+                        </div>
+                    </li>
+                    <li class="message-playlist__item" 
+                        data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" 
+                        data-image="images/thumbs/series/series-1000.jpg"
+                        data-title="Living a Life of Purpose"
+                        data-artist="Guest Speaker">
+                        <div class="message-playlist__info">
+                            <h4>Living a Life of Purpose</h4>
+                            <p>Guest Speaker</p>
+                        </div>
+                    </li>
+                    <li class="message-playlist__item" 
+                        data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" 
+                        data-image="images/thumbs/connect/connect-1000.jpg"
+                        data-title="The Power of Prayer"
+                        data-artist="Pst. George Y. Piah">
+                        <div class="message-playlist__info">
+                            <h4>The Power of Prayer</h4>
+                            <p>Pst. George Y. Piah</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </section> <!-- end page content -->
+
+    <!-- Social
+    ================================================== -->
+    <section class="s-social">
+            
+        <div class="row social-content">
+            <div class="column">
+                <ul class="social-list">
+                    <li class="social-list__item">
+                        <a href="https://www.facebook.com/profile.php?id=61576145439829" title="Facebook">
+                            <span class="social-list__icon social-list__icon--facebook"></span>
+                            <span class="social-list__text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a href="#0" title="Twitter">
+                            <span class="social-list__icon social-list__icon--twitter"></span>
+                            <span class="social-list__text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a href="#0" title="Instagram">
+                            <span class="social-list__icon social-list__icon--instagram"></span>
+                            <span class="social-list__text">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a href="mailto:thesuah22@gmail.com" title="Email">
+                            <span class="social-list__icon social-list__icon--email"></span>
+                            <span class="social-list__text">Email</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- end social-content -->
+
+    </section> <!-- end s-social -->
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer">
+        <div class="row footer-top">
+            <div class="column large-4 medium-5 tab-full">
+                <div class="footer-logo">
+                    <a class="site-footer-logo" href="index.html">
+                        <img src="LPOG.png" alt="The Power Of Grace Ministries International Inc">
+                    </a>
+                </div>
+                <p>
+                The Power Of Grace Ministries is more than just a church—it's a sanctuary of faith, a home for hearts seeking solace, and a beacon of divine love.
+                Within its walls, grace flows abundantly, transforming lives and strengthening souls. This ministry stands as a testimony to the boundless mercy and unwavering power of God's love, welcoming all who seek hope, renewal, and spiritual growth. Every sermon uplifts, every worship moment ignites passion, and every fellowship fosters unity. Through prayer, service, and devotion, The Power Of Grace Ministries continues to shine as a light in the world, guiding believers toward a life of purpose and divine favor. 
+                 </p>
+            </div>
+            <div class="column large-half tab-full">
+                <div class="row">
+                    <div class="column large-7 medium-full">
+                        <h4 class="h6">Our Location</h4>
+                        <p>
+                        Ice and Sugar <br /> Brewerville Monrovia,<br /> Liberia
+                        </p>
+                        <p>
+                        <a href="https://www.google.com/maps/d/u/1/embed?mid=1kkk4IwFh41GMcn-22FTj9ZEcMNvhQoc&ehbc=2E312F" target="_blank" class="btn btn--footer">Get Direction</a>
+                        </p>
+                    </div>
+                    <div class="column large-5 medium-full">
+                        <h4 class="h6">Quick Links</h4>
+                        <ul class="footer-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                            <li><a href="connect-group.html">Connect Groups</a></li>
+                            <li><a href="events.html">Upcoming Events</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer-bottom">
+            <div class="column ss-copyright">
+                <span>© Copyright The Power Of Grace 2025</span> 
+                <span>Design by <a href="http://suahco4.github.io/musician/index.html/">Suahco4</a></span>
+            </div>
+        </div>
+        <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Back to Top</title>
+                    <path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
+            </a>
+        </div>
+    </footer> <!-- end s-footer -->
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
     <script src="playlist.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    Tawk_API.onLoad = function(){
+        Tawk_API.setHeaderAttributes({
+            'backgroundColor' : '#3b0d11',
+            'textColor'       : '#ffffff'
+        });
+    };
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68f6aa9b5eca4d194faaecae/1j81okt8u';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
 </body>
 </html>

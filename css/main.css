@@ -1835,6 +1835,12 @@ input::-moz-focus-inner {
   width: 108px;
   height: 28px;
 }
+.header-logo .site-logo img {
+  width: auto;
+  height: 60px;
+  vertical-align: middle;
+  margin-top: -15px;
+}
 
 /* -------------------------------------------------------------------
  * ## main navigation
@@ -3178,6 +3184,12 @@ html.no-csstransitions .hero-content {
 .footer-logo img {
   width: 138px;
   height: 36px;
+}
+.footer-logo .site-footer-logo img {
+    width: auto;
+    height: 80px;
+    vertical-align: middle;
+    margin-bottom: 1rem;
 }
 
 /* -------------------------------------------------------------------
