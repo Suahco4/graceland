@@ -6,16 +6,38 @@
     <link rel="stylesheet" href="assets/css/control_panel/cp_style.css">
     <link rel="stylesheet" href="assets/css/control_panel/cp_themes.css">
     <title>The Power Of Grace Ministries</title>
+    <style>
+      [data-theme="graceland"] {
+        --theme-bg: #1e1e1e;
+        --theme-fg: #ffffff;
+        --theme-mid-bg: #2a2a2a;
+        --theme-primary: #3b0d11;
+        --theme-secondary: #5a141a;
+        --theme-warning: #fb8b23;
+        --theme-success: #28a745;
+        --theme-info: #17a2b8;
+        --theme-light: #f8f9fa;
+        --theme-dark: #343a40;
+        --theme-border: #444;
+      }
+      .btn.back-btn {
+        background-color: var(--theme-secondary);
+        color: var(--theme-fg);
+        border: 1px solid var(--theme-primary);
+      }
+      .btn.back-btn:hover {
+        background-color: var(--theme-primary);
+      }
+    </style>
   </head>
-  <body data-theme="dark">
+  <body data-theme="graceland">
     <div class="main">
       <div class="tab-item">
         <div id="text" class="tab-area">
+          <a href="index.html" class="btn back-btn" style="position: absolute; top: 10px; right: 10px;">Back to Main Site</a>
           <div class="container">
             <div class="textarea-container tooltip tooltip-top"  data-tooltip="Type the text to display">
-              <textarea class="fill" id="messageInput" placeholder="Type a message
-Click on History to get previous text
-DoubleClick on History erase all previous text"></textarea>
+              <textarea class="fill" id="messageInput" placeholder="Type a message to display on screen."></textarea>
             </div>
             <!-- <div id="message-toolbar" class="message-toolbar"> -->
             <div id="message-toolbar" class="message-toolbar row primary">
@@ -39,10 +61,11 @@ DoubleClick on History erase all previous text"></textarea>
         </div>
         <div id="bibleText" class="tab-area" style="display:none;">
           <div class="container">
+            <a href="index.html" class="btn back-btn" style="position: absolute; top: 10px; right: 10px;">Back to Main Site</a>
             <div class="bible-search row">
               <div class="input-group row">
                 <div class="search-group">
-                  <input class="input" id="bible-input" placeholder="Psalms 1:1 or Any Verse content">
+                  <input class="input" id="bible-input" placeholder="E.g., John 3:16 or 'God so loved'">
                   <div class="mid-bg color-fg" id="suggestions"></div>
                 </div>
                 <div class="row">
@@ -61,9 +84,9 @@ DoubleClick on History erase all previous text"></textarea>
                   <div class="settings-icons bible-version tooltip tooltip-bottom"  data-tooltip="Select a bible translation">
                     <label class="small-font" id="bible-translation" for="bible-version">Bible Translation</label>
                     <select name="bible-version" id="bible-version" class="small-font">
-                      <option value="assets/bibles/amplified/amplified.js">Amplified Bible</option>
+                      <option value="assets/bibles/amplified/amplified.js">Amplified</option>
                      
-                      <option value="assets/bibles/kjv/kjv.js">Authorized KJV</option>
+                      <option value="assets/bibles/kjv/kjv.js" selected>KJV</option>
                       <option value="assets/bibles/esv/esv.js">ESV</option>
                       
                       <option value="assets/bibles/nkjv/nkjv.js">NKJV</option>
@@ -94,6 +117,7 @@ DoubleClick on History erase all previous text"></textarea>
         </div>
         <div id="songs" class="tab-area" style="display:none;">
           <div class="container">
+            <a href="index.html" class="btn back-btn" style="position: absolute; top: 10px; right: 10px;">Back to Main Site</a>
             <div class="input-group row" id="add-song">
               <div class="search-group">
                 <input class="input" id="lyric-search" placeholder="Search lyrics">
@@ -149,6 +173,7 @@ DoubleClick on History erase all previous text"></textarea>
           </div>
         </div>
         <div id="setBg" class="tab-area no-gap" style="display:none;">
+          <a href="index.html" class="btn back-btn" style="position: absolute; top: 10px; right: 10px;">Back to Main Site</a>
           <div class="settings-tabs row">
             <button class="settings-tab-button" data-settings="settings-general">General</button>
             <button class="settings-tab-button" data-settings="settings-font">Font</button>

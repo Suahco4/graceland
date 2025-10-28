@@ -59,8 +59,8 @@
                 <li><a href="index.html" title="Home">Home</a></li>
                 <li><a href="about.html" title="About">About</a></li>
                 <li><a href="events.html" title="Services">Events</a></li>
-                <li><a href="gallery.html" title="Gallery">Gallery</a></li>
-                <li><a href="playlist.html" title="Messages">Messages</a></li>
+                <!-- <li><a href="gallery.html" title="Gallery">Gallery</a></li> -->
+                <!-- <li><a href="playlist.html" title="Messages">Messages</a></li> -->
                 <li><a href="donations.html" title="Donations">Donations</a></li>
                 <li><a href="contact.html" title="Contact us">Contact</a></li>
             </ul>
@@ -108,7 +108,7 @@
                 Kindly fill-up the form below to help us better understand your profile and help you connect to a connect group that suits you.
                 </p>
 
-                <form name="connectForm" id="connectForm" class="connectForm" method="POST" action="https://formspree.io/f/xblzedwv" autocomplete="off">
+                <form name="connectForm" id="connectForm" class="connectForm" method="POST" action="https://formspree.io/f/xblzedwv" autocomplete="off" title="Connect Group Form">
                     <fieldset>
 
                         <div class="form-field">
@@ -122,7 +122,6 @@
                         </div>
 
                         <div class="form-field">
-                            <input type="hidden" name="_next" value="thanks.html">
                             <label for="cPhone" class="screen-reader-text">Mobile Number</label>
                             <input name="phone" id="cPhone" class="h-full-width h-remove-bottom" placeholder="Mobile Number" value="" type="tel">
                         </div>
@@ -185,15 +184,21 @@
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a href="#0" title="Twitter">
+                        <a href="https://twitter.com/your-handle" title="Twitter" target="_blank" rel="noopener noreferrer">
                             <span class="social-list__icon social-list__icon--twitter"></span>
                             <span class="social-list__text">Twitter</span>
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a href="#0" title="Instagram">
+                        <a href="https://www.instagram.com/thepowerofgraceministries/" title="Instagram">
                             <span class="social-list__icon social-list__icon--instagram"></span>
                             <span class="social-list__text">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="social-list__item">
+                        <a href="https://www.youtube.com/@ThePowerOfGraceMinistries" title="YouTube">
+                            <span class="social-list__icon social-list__icon--youtube"></span>
+                            <span class="social-list__text">YouTube</span>
                         </a>
                     </li>
                     <li class="social-list__item">
@@ -253,8 +258,8 @@
 
         <div class="row footer-bottom">
             <div class="column ss-copyright">
-                <span>© Copyright The Power Of Grace 2025</span> 
-                <span>Design by <a href="http://suahco4.github.io/musician/index.html/">Suahco4</a></span>
+                <span id="copyright">© Copyright The Power Of Grace 2025</span> 
+                <span>Design by <a href="http://suahco4.github.io/musician/index.html/" rel="noopener noreferrer">Suahco4</a></span>
             </div>
         </div> <!-- footer-bottom -->
 
