@@ -182,7 +182,21 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-	-webkit-appearance: button;
+	-webkit-appearan/* c:\Users\User\Desktop\graceland-main\css\base.css */
+	
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="text"],
+	input[type="tel"],
+	input[type="url"],
+	input[type="password"],
+	textarea {
+		-webkit-appearance: none; /* This removes the native styling */
+		-moz-appearance: none;
+		appearance: none;
+	}
+	appearance: button;
 }
 
 /* Remove the inner border and padding in Firefox. */
@@ -247,7 +261,6 @@ textarea {
 /* 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari. */
 [type="search"] {
-	-webkit-appearance: textfield;  /* 1 */
 	outline-offset: -2px;  /* 2 */
 }
 
@@ -1244,6 +1257,12 @@ textarea {
 		padding: 0;
 	}
 
+	.footer-top > .column > .row > .column {
+		-webkit-flex: 0 0 100%;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
 }
 
 

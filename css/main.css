@@ -101,6 +101,12 @@ html {
 
 }
 
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 10.5px;
+    }
+}
+
 html,
 body {
   height: 100%;
@@ -785,6 +791,8 @@ select {
   line-height: 3.2rem;
   max-width: 100%;
   background: transparent;
+  background-color: #f2f2f2;
+  border: 1px solid #d3d3d3;
   border-bottom: 1px solid #d3d3d3;
   transition: all .3s ease-in-out;
 }
@@ -846,6 +854,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
+  background-color: #ffffff;
   color: #000000;
   border-bottom: 1px solid #000000;
 }
@@ -2749,8 +2758,8 @@ html.no-csstransitions .hero-content {
   padding-top: 19.2rem;
   padding-bottom: 19.2rem;
   min-height: 80rem;
-  background-color: #050505;
-  background-image: url(../images/pattern.jpg);
+  background-color: #000000;
+  /* background-image: url(../images/pattern.jpg); */
   background-size: 760px 380px;
   color: #ffffff;
   position: relative;
@@ -3060,8 +3069,16 @@ html.no-csstransitions .hero-content {
   background-image: url(../images/icons/social/icon-twitter.svg);
 }
 
+.social-list__icon--tiktok::before {
+  background-image: url(../images/icons/social/tiktok.svg);
+}
+
 .social-list__icon--instagram::before {
   background-image: url(../images/icons/social/icon-instagram.svg);
+}
+
+.social-list__icon--youtube::before {
+  background-image: url(../images/icons/social/icon-youtube.svg);
 }
 
 .social-list__icon--email::before {
@@ -3315,6 +3332,12 @@ html.no-csstransitions .hero-content {
 
   .ss-copyright span::after {
     display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ss-copyright span {
+    font-size: 1.6rem;
   }
 
   .ss-go-top {
@@ -3588,6 +3611,129 @@ html.no-csstransitions .hero-content {
     font-size: 4.2rem;
   }
 
+  .page-header h1 {
+    font-size: 3.8rem;
+    letter-spacing: -0.025em;
+  }
+
+}
+
+/* ------------------------------------------------------------------- 
+ * ## bible page 
+ * ------------------------------------------------------------------- */
+.page-header--bible {
+  background-image: url(../images/header-bgs/bible-header.jpg);
+}
+
+.bible-reader-container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 3.2rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.bible-form h3 {
+  margin-top: 0;
+  margin-bottom: 2.4rem;
+  text-align: center;
+}
+
+.bible-form .form-field {
+  margin-bottom: 1.6rem;
+}
+
+.bible-result-container {
+  margin-top: 3.2rem;
+  padding: 2.4rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+.is-hidden { display: none; }
+
+
+#bible-display {
+  margin-top: 0;
+}
+
+#bible-reference {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: #3b0d11;
+}
+
+#bible-text {
+  font-size: 2rem;
+  line-height: 1.8;
+  margin-bottom: 2.4rem;
+  font-style: italic;
+  color: #333333;
+}
+
+#bible-translation-display {
+  font-size: 1.4rem;
+  color: #8c8c8c;
+}
+
+.bible-display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+
+.btn--copy {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  background-color: #f2f2f2;
+  color: #333333;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn--copy:hover {
+  background-color: #e0e0e0;
+}
+
+@media screen and (min-width: 600px) {
+  .bible-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "trans trans"
+      "book chapter"
+      "verse verse"
+      "submit random";
+    gap: 1.6rem 2.4rem;
+  }
+  .bible-form h3 { grid-area: header; }
+  .bible-form .form-field:nth-of-type(1) { grid-area: trans; }
+  .bible-form .form-field:nth-of-type(2) { grid-area: book; }
+  .bible-form .form-field:nth-of-type(3) { grid-area: chapter; }
+  .bible-form .form-field:nth-of-type(4) { grid-area: verse; }
+  #bible-submit { grid-area: submit; }
+  #bible-random-verse { grid-area: random; }
+
+  .bible-form .form-field,
+  #bible-submit,
+  #bible-random-verse {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #bible-random-verse {
+    margin-top: 1.6rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
