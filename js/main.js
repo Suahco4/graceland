@@ -140,39 +140,8 @@
         const year = new Date().getFullYear();
         const copyrightHolder = document.querySelector('#copyright');
         if (copyrightHolder) {
-            copyrightHolder.textContent = `© Copyright The Power Of Grace ${year}`;
+            copyrightHolder.innerHTML = `&copy; Copyright The Power Of Grace ${year}`;
         }
-    };
-
-
-   /* Form Submission
-    * ------------------------------------------------------ */
-    const ssFormSubmission = function() {
-        const forms = document.querySelectorAll('form[action^="https://formspree.io/"]');
-
-        forms.forEach(form => {
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
-                const form = e.target;
-                const data = new FormData(form);
-                const action = form.action;
-
-                fetch(action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                }).then(response => {
-                    if (response.ok) {
-                        window.location.href = 'thanks.html';
-                    } else {
-                        alert('Oops! There was a problem submitting your form.');
-                    }
-                }).catch(error => {
-                    alert('Oops! There was a problem submitting your form.');
-                    console.error('Form submission error:', error);
-                });
-            });
-        });
     };
 
 
@@ -186,7 +155,6 @@
         ssSmoothScroll();
         ssBackToTop();
         ssUpdateCopyright();
-        ssFormSubmission();
 
     })();
 

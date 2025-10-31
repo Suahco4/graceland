@@ -9,6 +9,7 @@
         const chapterInput = document.getElementById('bible-chapter');
         const verseInput = document.getElementById('bible-verse');
         const translationSelect = document.getElementById('bible-translation-select');
+        const suggestionsContainer = document.getElementById('bible-book-suggestions');
         const randomVerseButton = document.getElementById('bible-random-verse');
         
         const resultContainer = document.getElementById('bible-result');
@@ -20,6 +21,8 @@
         const textEl = document.getElementById('bible-text');
         const translationDisplayEl = document.getElementById('bible-translation-display');
         const copyButton = document.getElementById('bible-copy-verse');
+
+        let activeSuggestionIndex = -1;
 
         // List of Bible books with chapter counts for random selection
         const bibleBooks = [
@@ -93,13 +96,103 @@
                 });
         }
 
+        function updateActiveSuggestion() {
+            const items = suggestionsContainer.querySelectorAll('.suggestion-item');
+            items.forEach((item, index) => {
+                item.classList.toggle('suggestion-active', index === activeSuggestionIndex);
+            });
+        }
+
+        // Event listener for book input to show suggestions
+        bookInput.addEventListener('input', function() {
+            const inputText = bookInput.value.toLowerCase();
+            suggestionsContainer.innerHTML = '';
+            activeSuggestionIndex = -1;
+
+            if (inputText.length === 0) {
+                suggestionsContainer.classList.add('is-hidden');
+                return;
+            }
+
+            const filteredBooks = bibleBooks.filter(book => 
+                book.name.toLowerCase().startsWith(inputText)
+            );
+
+            if (filteredBooks.length > 0) {
+                filteredBooks.forEach(book => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.classList.add('suggestion-item');
+                    suggestionItem.textContent = book.name;
+                    suggestionItem.addEventListener('click', function() {
+                        bookInput.value = book.name;
+                        suggestionsContainer.innerHTML = '';
+                        suggestionsContainer.classList.add('is-hidden');
+                        activeSuggestionIndex = -1;
+                        chapterInput.focus(); // Move focus to the chapter input
+                    });
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+                suggestionsContainer.classList.remove('is-hidden');
+            } else {
+                suggestionsContainer.classList.add('is-hidden');
+            }
+        });
+
+        bookInput.addEventListener('keydown', function(e) {
+            const items = suggestionsContainer.querySelectorAll('.suggestion-item');
+            if (items.length === 0 || suggestionsContainer.classList.contains('is-hidden')) {
+                return;
+            }
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                activeSuggestionIndex++;
+                if (activeSuggestionIndex >= items.length) {
+                    activeSuggestionIndex = 0;
+                }
+                updateActiveSuggestion();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                activeSuggestionIndex--;
+                if (activeSuggestionIndex < 0) {
+                    activeSuggestionIndex = items.length - 1;
+                }
+                updateActiveSuggestion();
+            } else if (e.key === 'Enter') {
+                if (activeSuggestionIndex > -1) {
+                    e.preventDefault(); // Prevent form submission
+                    items[activeSuggestionIndex].click();
+                }
+            } else if (e.key === 'Escape') {
+                suggestionsContainer.classList.add('is-hidden');
+                activeSuggestionIndex = -1;
+            }
+        });
+
+        // Hide suggestions when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!form.contains(e.target)) {
+                suggestionsContainer.classList.add('is-hidden');
+                activeSuggestionIndex = -1;
+            }
+        });
+
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+
+            // If suggestions are open and one is active, use it.
+            const activeSuggestion = suggestionsContainer.querySelector('.suggestion-active');
+            if (activeSuggestion && !suggestionsContainer.classList.contains('is-hidden')) {
+                activeSuggestion.click();
+                return;
+            }
 
             const book = bookInput.value.trim();
             const chapter = chapterInput.value.trim();
             const verse = verseInput.value.trim();
             const translation = translationSelect.value;
+
+            suggestionsContainer.classList.add('is-hidden');
 
             if (!book || !chapter) {
                 error.textContent = 'Please provide a book and chapter.';
